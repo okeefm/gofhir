@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /opt/gofhir
-nohup ./gofhir -pgurl postgres://fhir:fhir@localhost/fhir?sslmode=disable > ./gofhir.log &
+nohup ./gofhir > ./gofhir.log &
+crucible_ci -t HistoryTest http://localhost:3001

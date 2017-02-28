@@ -2,7 +2,12 @@ sudo: false
 language: go
 go:
 - 1.7
-script: go test $(go list ./... | grep -v /vendor/)
+before_install:
+  - rvm install 2.2
+  - gem install crucible_ci
+script:
+  - go test $(go list ./... | grep -v /vendor/)
+  - 
 services:
 - mongodb
 addons:
@@ -14,5 +19,4 @@ addons:
 branches:
   only:
   - master
-notifications:
-  slack: hdi10x:tgmWL6OKKgODjOMqHuRMerxC
+  - crucible_ci_demo
