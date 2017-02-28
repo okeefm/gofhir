@@ -3,11 +3,11 @@ language: go
 go:
 - 1.7
 before_install:
-  - rvm install 2.2
+  - rvm install 2.3
   - gem install crucible_ci
 script:
   - go test $(go list ./... | grep -v /vendor/)
-  - 
+  -
 services:
 - mongodb
 addons:
